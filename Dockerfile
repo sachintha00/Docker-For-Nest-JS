@@ -1,12 +1,7 @@
-FROM node:18-alpine3.16
+FROM node:18-alpine3.16 AS Development
 
 WORKDIR /app
 
-COPY package.json ./
-RUN yarn install
-# RUN npm install
+COPY ./src/package.json ./
 
-COPY . .
-
-RUN yarn run build
-# RUN npm run build
+COPY ./src .
